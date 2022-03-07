@@ -8,6 +8,8 @@ phyloseq.R contains the R code for all of the phyloseq analyses including code f
 
 corrs.R contains the R code used to generate the scatterplots for Figure 3
 
+h2.R contains the R code used to calculate narrow-sense heritability and generate Figure 4
+
 RDA.R contains the R code for the RDA analysis and Figure 5.
 
 statgenGWAS.R contains the R code used for the genome wide association study and to generate Figure 6 and Supplemental Figure 5. 
