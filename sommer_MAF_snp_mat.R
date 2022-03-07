@@ -1,0 +1,61 @@
+library(sommer)
+library(vroom)
+library(textshape)
+
+options(expressions = 5e5)
+
+G1 <- vroom("G1.csv", col_names = TRUE, col_types = c(.default = "c"))
+G1 <- textshape::column_to_rownames(G1, loc = 1)
+G2 <- vroom("G2.csv", col_names = TRUE, col_types = c(.default = "c"))
+G2 <- textshape::column_to_rownames(G2, loc = 1)
+
+
+G1.num <- atcg1234(G1, ploidy=2, format="ATCG", maf=0.05)
+G2.num <- atcg1234(G2, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(G1.num$M, G2.num$M)
+rm(G1.num, G2.num, G1, G2)
+Sys.sleep(10)
+
+G <- vroom("G3.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+G <- vroom("G4.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+G <- vroom("G5.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+G <- vroom("G6.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+G <- vroom("G7.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+G <- vroom("G8.csv", col_names = TRUE, col_types = c(.default = "c"))
+G <- textshape::column_to_rownames(G, loc = 1)
+G.num <- atcg1234(G, ploidy=2, format="ATCG", maf=0.05)
+Gnum <- cbind(Gnum, G.num$M)
+rm(G.num, G)
+Sys.sleep(10)
+
+write.csv(Gnum, "ALL_Gnum_MAF_362.csv")
